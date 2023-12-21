@@ -2,7 +2,7 @@ import {CORE_CONCEPTS, EXAMPLES} from "./data";
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
-import {useState} from "react";
+import {Fragment, useState} from "react";
 
 function App() {
     const [selectedTopic, setSelectedTopic] = useState("components")
@@ -13,7 +13,7 @@ function App() {
 
 
     return (
-        <div>
+        <Fragment>
             <Header/>
             <main>
                 <section id="core-concepts">
@@ -25,10 +25,14 @@ function App() {
                 <section id={"examples"}>
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton isSelected={selectedTopic === "components"} onSelect={() => handleSelect("components")}>Components</TabButton>
-                        <TabButton isSelected={selectedTopic === "jsx"} onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-                        <TabButton isSelected={selectedTopic === "props"} onSelect={() => handleSelect("props")}>Props</TabButton>
-                        <TabButton isSelected={selectedTopic === "state"} onSelect={() => handleSelect("state")}>State</TabButton>
+                        <TabButton isSelected={selectedTopic === "components"}
+                                   onSelect={() => handleSelect("components")}>Components</TabButton>
+                        <TabButton isSelected={selectedTopic === "jsx"}
+                                   onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+                        <TabButton isSelected={selectedTopic === "props"}
+                                   onSelect={() => handleSelect("props")}>Props</TabButton>
+                        <TabButton isSelected={selectedTopic === "state"}
+                                   onSelect={() => handleSelect("state")}>State</TabButton>
 
                     </menu>
                     <div id={"tab-content"}>
@@ -40,7 +44,7 @@ function App() {
                     </div>
                 </section>
             </main>
-        </div>
+        </Fragment>
     );
 }
 
